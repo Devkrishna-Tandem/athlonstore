@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Athlon Store</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  
+
+</head>
+<body>
+    
+    <div id="loading-spinner" class="loading-spinner" style="display: none;"></div>
+    
+    
+<div id="loading-screen">
+  <img src="/img/loading.gif" alt="Loading...">
+</div>
+<header>
+  <div class="logo">
+    <h1>Athlon Store</h1>
+  </div>
+  <div class="search-bar">
+    <input type="text" id="search-input" placeholder="Search products..." oninput="showSuggestions(this.value)">
+    <button id="search-button">&#128269;</button>
+    <ul id="search-results" class="dropdown"></ul>
+  </div>
+  
+  <div id="loading-spinner" class="loading-spinner" style="display: none;"></div>
+</header>
+
+
+  <!-- Hero Section (Main Banner) -->
+  <section class="hero-banner">
+      
+    <div class="hero-text">
+        
+      <h1>Power Your Digital World with Athlon</h1>
+      <p>Your trusted provider for game hosting, development services, and digital solutions.</p>
+      <button onclick="window.location.href='/shop'">Explore Our Services</button>
+ 
+    </div>
+    
+  </section>
+  <!-- Best Sellers -->
+  <section class="best-sellers">
+    <h2>Best Sellers</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="/img/mchost~2.png" alt="Minecraft Hosting">
+        <h4>Minecraft Server Hosting</h4>
+        <p>$15/month – Powerful and scalable servers for Minecraft.</p>
+        <button onclick="window.location.href='/pages/web.html'">Buy Now</button>
+      </div>
+      <div class="product-card">
+        <img src="/img/vps.png" alt="VPS Hosting">
+        <h4>VPS Hosting</h4>
+        <p>Scalable and secure VPS hosting for all your needs.</p>
+        <button onclick="window.location.href='/shop/vps'">Buy Now</button>
+      </div>
+      <div class="product-card">
+        <img src="/img/steam.png" alt="Steam Account">
+        <h4>Verified Steam Accounts</h4>
+        <p>Get access to verified and ready-to-play Steam accounts.</p>
+        <button onclick="window.location.href='/shop/steam-account'">Buy Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Categories -->
+  <section class="featured-categories">
+    <h2>Featured Categories</h2>
+    <div class="category-container">
+      <div class="category-card">
+        <img src="/img/host.png" alt="Hosting">
+        <h3>Hosting Services</h3>
+        <p>Reliable servers for Minecraft, MTA, FiveM, and more.</p>
+        <a href="/shop/hosting">Explore</a>
+      </div>
+      <div class="category-card">
+        <img src="/img/development.png" alt="Development">
+        <h3>Development Services</h3>
+        <p>Custom software and game development solutions.</p>
+        <a href="/shop/development">Explore</a>
+      </div>
+      <div class="category-card">
+        <img src="/img/socia-media.png" alt="Social Media">
+        <h3>Social Media Services</h3>
+        <p>Boost your online presence with Instagram Followers & YouTube Subscribers.</p>
+        <a href="/shop/social">Explore</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Customer Testimonials -->
+  <section class="testimonials">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial">
+      <p>"Athlon's Minecraft server hosting has been amazing for our community!"</p>
+      <p><strong>- Mark S.</strong></p>
+    </div>
+    <div class="testimonial">
+      <p>"Great VPS services, very reliable and fast!"</p>
+      <p><strong>- John D.</strong></p>
+    </div>
+  </section>
+
+  
+<script>
+  document.body.classList.add('loading');
+  window.addEventListener('load', () => {
+    document.body.classList.remove('loading');
+  });
+
+  const products = [
+    { name: "Minecraft Server Hosting", description: "Powerful servers for Minecraft." },
+    { name: "VPS Hosting", description: "Scalable VPS hosting for all your needs." },
+    { name: "Verified Steam Accounts", description: "Ready-to-play Steam accounts." },
+  ];
+
+  const searchInput = document.getElementById('search-input');
+  const searchResults = document.getElementById('search-results');
+  const searchButton = document.getElementById('search-button');
+  const loadingSpinner = document.getElementById('loading-spinner'); // Add a spinner element in your HTML
+
+  function showSuggestions(query) {
+    searchResults.innerHTML = '';
+    if (!query) {
+      searchResults.style.display = 'none';
+      return;
+    }
+
+    const matches = products.filter(product =>
+      product.name.toLowerCase().includes(query.toLowerCase())
+    );
+
+    matches.forEach(match => {
+      const li = document.createElement('li');
+      li.textContent = match.name;
+      li.onclick = () => {
+        searchInput.value = match.name;
+        searchResults.style.display = 'none';
+      };
+      searchResults.appendChild(li);
+    });
+
+    searchResults.style.display = matches.length > 0 ? 'block' : 'none';
+  }
+
+  searchButton.addEventListener('click', () => {
+    const query = searchInput.value.toLowerCase();
+
+    // Show the loading spinner
+    loadingSpinner.style.display = 'block';
+
+    // Simulate a delay for search processing (or replace this with actual backend/API call logic)
+    setTimeout(() => {
+      const productCards = document.querySelectorAll('.product-card');
+
+      productCards.forEach(card => {
+        const productName = card.querySelector('h4').innerText.toLowerCase();
+        card.style.display = productName.includes(query) ? 'block' : 'none';
+      });
+
+      // Hide the spinner once the results are processed
+      loadingSpinner.style.display = 'none';
+
+      // Hide suggestions dropdown
+      searchResults.style.display = 'none';
+    }, 1000); // Simulate a 1-second delay
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.search-bar')) {
+      searchResults.style.display = 'none';
+    }
+  });
+</script>
+
+<!-- Footer Section -->
+  <footer>
+    
+    <p>&copy; 2024 Team Tandem| All Rights Reserved</p>
+    
+  </footer>
+
+</body>
+</html>

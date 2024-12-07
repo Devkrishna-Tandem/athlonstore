@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hosting Plans | Athlon Store</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="logo">
+      <h1><a href="/">Athlon Store</a></h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/hosting">Hosting Plans</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hosting Plans Section -->
+  <section class="hosting-plans">
+    <h2>Our Hosting Plans</h2>
+    <p>Choose the perfect hosting plan to power your website or application.</p>
+    <div class="plans-container">
+      <!-- Basic Plan -->
+      <div class="plan-card">
+        <h3>Basic Plan</h3>
+        <p class="price">$5/month</p>
+        <ul>
+          <li>1 Website</li>
+          <li>10 GB SSD Storage</li>
+          <li>Unlimited Bandwidth</li>
+          <li>Free SSL Certificate</li>
+        </ul>
+        <button>Get Started</button>
+      </div>
+
+      <!-- Standard Plan -->
+      <div class="plan-card popular">
+        <h3>Standard Plan</h3>
+        <p class="price">$15/month</p>
+        <ul>
+          <li>10 Websites</li>
+          <li>50 GB SSD Storage</li>
+          <li>Unlimited Bandwidth</li>
+          <li>Free SSL Certificate</li>
+          <li>Daily Backups</li>
+        </ul>
+        <button>Get Started</button>
+      </div>
+
+      <!-- Premium Plan -->
+      <div class="plan-card">
+        <h3>Premium Plan</h3>
+        <p class="price">$25/month</p>
+        <ul>
+          <li>Unlimited Websites</li>
+          <li>200 GB SSD Storage</li>
+          <li>Unlimited Bandwidth</li>
+          <li>Free SSL Certificate</li>
+          <li>Priority Support</li>
+        </ul>
+        <button>Get Started</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Athlon Store. All Rights Reserved.</p>
+  </footer>
+
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #000000df;
+      color: white;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    /* Hosting Plans Section */
+    .hosting-plans {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .plans-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      justify-content: center; /* Ensure it's centered on mobile */
+    }
+
+    .plan-card {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 30%;
+      text-align: center;
+      margin: 10px;
+    }
+
+    .plan-card h3 {
+      margin-top: 0;
+    }
+
+    .plan-card .price {
+      font-size: 2rem;
+      color: #ff6f61;
+      margin: 10px 0;
+    }
+
+    .plan-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    .plan-card ul li {
+      padding: 5px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .plan-card ul li:last-child {
+      border-bottom: none;
+    }
+
+    .plan-card button {
+      padding: 10px 20px;
+      background-color: #ff6f61;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .plan-card button:hover {
+      background-color: #ff4f42;
+    }
+
+    .plan-card.popular {
+      border: 2px solid #ff9900;
+    }
+
+    /* Footer Styles */
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .plans-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .plan-card {
+        width: 90%; /* Take up most of the width on mobile */
+        margin-bottom: 20px;
+      }
+
+      .plan-card.popular {
+        border: 2px solid #ff9900;
+      }
+    }
+
+    /* Extra small screens (up to 480px) */
+    @media (max-width: 480px) {
+      .plan-card {
+        width: 100%;
+        margin: 10px 0;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .plan-card .price {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</body>
+</html>
